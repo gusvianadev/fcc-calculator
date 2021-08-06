@@ -25,6 +25,7 @@ const AppFunctions = () => {
 	// >> CALCS << //
 	const [screen, setScreen] = useState('0');
 	const [operation, setOperation] = useState(null);
+	const [operationSymbol, setOperationSymbol] = useState('');
 
 	const calcItems = [
 		{
@@ -35,7 +36,9 @@ const AppFunctions = () => {
 		{
 			name: 'screen',
 			background: theme.screenBackground,
-			content: <CalcScreen operation={operation} screen={screen} />,
+			content: (
+				<CalcScreen operationSymbol={operationSymbol} screen={screen} />
+			),
 		},
 		{
 			name: 'pad',
@@ -46,6 +49,7 @@ const AppFunctions = () => {
 					setScreen={setScreen}
 					operation={operation}
 					setOperation={setOperation}
+					setOperationSymbol={setOperationSymbol}
 				/>
 			),
 		},

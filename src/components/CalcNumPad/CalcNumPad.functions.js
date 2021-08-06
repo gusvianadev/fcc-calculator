@@ -5,6 +5,7 @@ const CalcNumPadFunctions = ({
 	setScreen,
 	operation,
 	setOperation,
+	setOperationSymbol,
 }) => {
 	const numPadBtns = [
 		'7',
@@ -70,7 +71,7 @@ const CalcNumPadFunctions = ({
 			}
 		};
 
-		const handleOperation = (callback) => {
+		const handleOperation = (callback, symbol) => {
 			const executeOperation = () => {
 				const calc = parseFloat(
 					// ? to remove unnecessary floating points
@@ -92,14 +93,17 @@ const CalcNumPadFunctions = ({
 					if (!operation && callback) {
 						setTotal(screen);
 						setOperation(() => callback);
+						setOperationSymbol(symbol);
 					} else if (callback) {
 						// ? if an operation is requested
 						executeOperation();
 						setOperation(() => callback);
+						setOperationSymbol(symbol);
 					} else if (operation) {
 						// ? for the equal sign. Just execute and don't set any other operation
 						executeOperation();
 						setOperation('');
+						setOperationSymbol('=');
 					}
 					setClearScreen(true);
 				} else if (btn === '-') {
@@ -108,6 +112,7 @@ const CalcNumPadFunctions = ({
 				} else {
 					setTotal('0');
 					setOperation(() => callback);
+					setOperationSymbol(symbol);
 				}
 			}
 		};
@@ -125,22 +130,23 @@ const CalcNumPadFunctions = ({
 		const handleReset = () => {
 			setScreen('0');
 			setOperation(null);
+			setOperationSymbol('');
 			setTotal(null);
 			setClearScreen(true);
 		};
 
 		switch (btn) {
 			case '+':
-				handleOperation(add);
+				handleOperation(add, '+');
 				break;
 			case '-':
-				handleOperation(substract);
+				handleOperation(substract, '-');
 				break;
 			case 'x':
-				handleOperation(multiply);
+				handleOperation(multiply, 'x');
 				break;
 			case '/':
-				handleOperation(divide);
+				handleOperation(divide, '/');
 				break;
 			case '=':
 				handleOperation();

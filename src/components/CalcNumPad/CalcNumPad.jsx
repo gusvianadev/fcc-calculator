@@ -1,12 +1,19 @@
 import CalcNumPadFunctions from './CalcNumPad.functions';
 import { ButtonSty, CalcNumpadSty } from './CalcNumPad.styles';
 
-const NumPad = ({ screen, setScreen, operation, setOperation }) => {
+const NumPad = ({
+	screen,
+	setScreen,
+	operation,
+	setOperation,
+	setOperationSymbol,
+}) => {
 	const { numPadBtns, handleBtnClick } = CalcNumPadFunctions({
 		screen,
 		setScreen,
 		operation,
 		setOperation,
+		setOperationSymbol,
 	});
 
 	return (
