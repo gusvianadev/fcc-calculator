@@ -4,6 +4,7 @@ const CalcScreen = ({ operation, screen }) => {
 	const operationSymbol = () => {
 		if (operation) {
 			switch (operation.name) {
+				// ? adds the correct symbol
 				case 'add':
 					return '+';
 				case 'substract':
