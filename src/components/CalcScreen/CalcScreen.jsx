@@ -14,10 +14,10 @@ const CalcScreen = ({ operation, screen }) => {
 				case 'divide':
 					return '/';
 				default:
-					return 'calc';
+					return '';
 			}
 		} else {
-			return 'calc';
+			return '';
 		}
 	};
 	return (
