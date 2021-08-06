@@ -102,13 +102,19 @@ const CalcNumPadFunctions = ({
 					} else if (operation) {
 						// ? for the equal sign. Just execute and don't set any other operation
 						executeOperation();
-						setOperation('');
+						setOperation(null);
 						setOperationSymbol('=');
 					}
 					setClearScreen(true);
-				} else if (btn === '-') {
+				} else if (
+					btn === '-' &&
+					(operation || screen.toString() === '0')
+				) {
 					setScreen('-');
 					setClearScreen(false);
+				} else {
+					setOperation(() => callback);
+					setOperationSymbol(symbol);
 				}
 			}
 		};
