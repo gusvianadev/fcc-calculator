@@ -1,7 +1,7 @@
 import CalcScreenSty from './CalcScreen.styles';
 
 const CalcScreen = ({ operation, screen }) => {
-	const operationSymbol = () => {
+	const getSymbol = () => {
 		if (operation) {
 			switch (operation.name) {
 				// ? adds the correct symbol
@@ -20,9 +20,10 @@ const CalcScreen = ({ operation, screen }) => {
 			return '';
 		}
 	};
+	const operationSymbol = getSymbol();
 	return (
 		<CalcScreenSty>
-			<div className="screen__operation">{operationSymbol()}</div>
+			<div className="screen__operation">{operationSymbol}</div>
 			<div className="screen__number">{screen}</div>
 		</CalcScreenSty>
 	);
