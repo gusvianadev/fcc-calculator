@@ -60,7 +60,7 @@ const CalcNumPadFunctions = ({
 				return null;
 			}
 			// ? first check if the amount of numbers is less than 10 or if the screen is to be cleared
-			if (parseFloat(screen + btn) < maxNumber || clearScreen) {
+			if (parseFloat(screen + btn) <= maxNumber || clearScreen) {
 				if (clearScreen) {
 					// ? if the screen was to be cleared
 					leadingDot ? setScreen('0.') : setScreen(btn);
@@ -109,10 +109,6 @@ const CalcNumPadFunctions = ({
 				} else if (btn === '-') {
 					setScreen('-');
 					setClearScreen(false);
-				} else {
-					setTotal('0');
-					setOperation(() => callback);
-					setOperationSymbol(symbol);
 				}
 			}
 		};
