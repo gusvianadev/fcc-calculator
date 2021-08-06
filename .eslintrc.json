@@ -18,6 +18,7 @@
 	},
 	"plugins": ["react"],
 	"rules": {
+		"consistent-return": "off",
 		"no-tabs": 0,
 		"indent": "off",
 		"object-curly-newline": "off",
@@ -33,6 +34,7 @@
 			"error",
 			{ "allowTernary": true, "allowShortCircuit": true }
 		],
+		"no-nested-ternary": "off",
 		"react/react-in-jsx-scope": "off",
 		"react/jsx-indent": "off",
 		"react/jsx-indent-props": "off",
