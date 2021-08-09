@@ -18,8 +18,13 @@ const NumPad = ({
 
 	return (
 		<CalcNumpadSty>
-			{numPadBtns.map((btn) => (
-				<ButtonSty key={btn} type="button" onClick={handleBtnClick}>
+			{numPadBtns.map(({ btn, id }) => (
+				<ButtonSty
+					id={id}
+					key={id}
+					type="button"
+					onClick={handleBtnClick}
+				>
 					{btn}
 				</ButtonSty>
 			))}

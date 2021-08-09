@@ -8,28 +8,82 @@ const CalcNumPadFunctions = ({
 	setOperationSymbol,
 }) => {
 	const numPadBtns = [
-		'7',
-		'8',
-		'9',
-		'del',
-		'4',
-		'5',
-		'6',
-		'+',
-		'1',
-		'2',
-		'3',
-		'-',
-		'.',
-		'0',
-		'/',
-		'x',
-		'reset',
-		'=',
+		{
+			btn: '7',
+			id: 'seven',
+		},
+		{
+			btn: '8',
+			id: 'eight',
+		},
+		{
+			btn: '9',
+			id: 'nine',
+		},
+		{
+			btn: 'del',
+			id: 'del',
+		},
+		{
+			btn: '4',
+			id: 'four',
+		},
+		{
+			btn: '5',
+			id: 'five',
+		},
+		{
+			btn: '6',
+			id: 'six',
+		},
+		{
+			btn: '+',
+			id: 'add',
+		},
+		{
+			btn: '1',
+			id: 'one',
+		},
+		{
+			btn: '2',
+			id: 'two',
+		},
+		{
+			btn: '3',
+			id: 'three',
+		},
+		{
+			btn: '-',
+			id: 'subtract',
+		},
+		{
+			btn: '.',
+			id: 'decimal',
+		},
+		{
+			btn: '0',
+			id: 'zero',
+		},
+		{
+			btn: '/',
+			id: 'divide',
+		},
+		{
+			btn: 'x',
+			id: 'multiply',
+		},
+		{
+			btn: 'reset',
+			id: 'clear',
+		},
+		{
+			btn: '=',
+			id: 'equals',
+		},
 	];
 
 	const add = (a, b) => a + b;
-	const substract = (a, b) => a - b;
+	const subtract = (a, b) => a - b;
 	const multiply = (a, b) => a * b;
 	const divide = (a, b) => a / b;
 
@@ -75,7 +129,7 @@ const CalcNumPadFunctions = ({
 			const executeOperation = () => {
 				const calc = parseFloat(
 					// ? to remove unnecessary floating points
-					operation(parseFloat(total), parseFloat(screen)).toFixed(2)
+					operation(parseFloat(total), parseFloat(screen)).toFixed(4)
 				);
 				if (calc < maxNumber) {
 					setTotal(calc);
@@ -116,6 +170,10 @@ const CalcNumPadFunctions = ({
 					setOperation(() => callback);
 					setOperationSymbol(symbol);
 				}
+			} else if (screen === '-' && callback) {
+				setOperation(() => callback);
+				setOperationSymbol(symbol);
+				setScreen('');
 			}
 		};
 
@@ -142,7 +200,7 @@ const CalcNumPadFunctions = ({
 				handleOperation(add, '+');
 				break;
 			case '-':
-				handleOperation(substract, '-');
+				handleOperation(subtract, '-');
 				break;
 			case 'x':
 				handleOperation(multiply, 'x');
