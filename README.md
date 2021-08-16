@@ -11,7 +11,7 @@ It's a basic calculator. You can add, substract, multiply and divide.
 1. Clone down this repository. You will need `node` and `npm` installed globally on your computer.
 2. Run `npm install` to install all the dependencies.
 3. Run `npm start` to start the app.
-4. Or visit the website: [Calculator](https://gusvianadev.github.io/calculator/)
+4. Or visit the website: [Calculator](https://gusvianadev.github.io/fcc-calculator/)
 
 ## What can this do?
 
